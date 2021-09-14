@@ -8,10 +8,14 @@
 
 <% local ver = require "luci.version" %>
 
-   <footer>
-    <a href="http://netping.ru">Powered by NetPing</a> / <%= ver.distversion %>
-    <ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul>
-   </footer>
+    <footer>
+        <div class="fill">
+            <div class="container">
+                <font>&copy; 2021 NetPing East Co Ltd, Alentis Electronics</font>
+            </div>
+        </div>
+        <ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul>
+    </footer>
   </div>
   <% if luci.dispatcher.context.authsession then %>
   <script type="text/javascript">L.require('menu-bootstrap')</script>

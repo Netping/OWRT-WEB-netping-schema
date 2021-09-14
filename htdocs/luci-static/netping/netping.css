@@ -1,0 +1,48 @@
+.brandimg {
+    height: 20px;
+    vertical-align: middle;
+    padding-right:10px;
+}
+div {
+    border-color: rgb(1, 168, 91) !important;
+}
+header .fill {
+    background-color: rgb(1, 168, 91);
+    background-image: none;
+    box-shadow: none;
+}
+footer .fill {
+    background-color: rgb(1, 168, 91);
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    color: white;
+}
+.cbi-progressbar > div {
+    background-color: rgb(204, 255, 204)
+}
+.ifacebox .ifacebox-head.active {
+    background-color: rgb(204, 255, 204)
+}
+header a {
+    color: white;
+    text-shadow: none;
+}
+header div > ul .dropdown-menu, .nav .dropdown-menu {
+    background-color: rgb(1, 168, 91);
+}
+header div > ul .dropdown-menu li a, .nav .dropdown-menu li a {
+    color: white;
+    text-shadow: none;
+}
+header div > ul .dropdown-menu li a:hover, .nav .dropdown-menu li a:hover {
+    /*background-color: rgb(204, 255, 204);*/
+    background-color: #2fd20d;
+    background-repeat: repeat-x;
+    background-image: none;
+    color: white;
+}
