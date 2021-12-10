@@ -9,4 +9,5 @@ if [ "$PKG_UPGRADE" != 1 ]; then
     EOF
 fi
 
+sed -i 's/admin_status/netping_status/' /usr/share/luci/menu.d/luci-mod-status.json
 exit 0
