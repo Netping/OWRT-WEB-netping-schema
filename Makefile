@@ -1,8 +1,8 @@
-include $(TOPDIR)/rules.mk
 
-LUCI_TITLE:=NetPing LuCI Theme
-LUCI_DEPENDS:=
+.PHONY: all install
 
-include $(TOPDIR)/feeds/luci/luci.mk
+all:
+	@echo "Nothing to do"
 
-# call BuildPackage - OpenWrt buildroot signature
+install:
+	@echo "Nothing to do"
