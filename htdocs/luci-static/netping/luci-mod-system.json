@@ -1,0 +1,51 @@
+{
+	"admin/system/system": {
+		"title": "System",
+		"order": 1,
+		"action": {
+			"type": "view",
+			"path": "system/system"
+		}
+	},
+
+	"admin/system/admin": {
+		"title": "Administration",
+		"order": 2,
+		"action": {
+			"type": "firstchild"
+		}
+	},
+
+	"admin/system/admin/password": {
+		"title": "Router Password",
+		"order": 1,
+		"action": {
+			"type": "view",
+			"path": "system/password"
+		}
+	},
+
+	"admin/system/admin/dropbear": {
+		"title": "SSH Access",
+		"order": 2,
+		"action": {
+			"type": "view",
+			"path": "system/dropbear"
+		},
+		"depends": {
+			"fs": {	"/usr/sbin/dropbear": "executable" }
+		}
+	},
+
+	"admin/system/admin/sshkeys": {
+		"title": "SSH-Keys",
+		"order": 3,
+		"action": {
+			"type": "view",
+			"path": "system/sshkeys"
+		},
+		"depends": {
+			"fs": {	"/usr/sbin/dropbear": "executable" }
+		}
+	},
+}

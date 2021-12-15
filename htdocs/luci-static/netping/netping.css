@@ -1,5 +1,5 @@
 .brandimg {
-    height: 20px;
+    height: 19px;
     vertical-align: middle;
     padding-right:10px;
 }
@@ -21,6 +21,12 @@ footer .fill {
     padding-bottom: 20px;
     padding-top: 10px;
     color: white;
+}
+footer .container a {
+    color: white;
+}
+footer .support {
+    float: right;
 }
 .cbi-progressbar > div {
     background-color: rgb(204, 255, 204)

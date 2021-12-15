@@ -1,0 +1,20 @@
+{
+	"admin/status/overview": {
+		"title": "Overview",
+		"order": 1,
+		"action": {
+			"type": "template",
+			"path": "netping_status/index"
+		}
+	},
+
+	"admin/status/syslog": {
+		"title": "System Log",
+		"order": 4,
+		"action": {
+			"type": "view",
+			"path": "status/syslog"
+		}
+	},
+
+}
