@@ -1,8 +1,11 @@
+#
+# Copyright (C) 2021 NetPing <support@netping.ru>
+# 
+include $(TOPDIR)/rules.mk
 
-.PHONY: all install
+LUCI_TITLE:=OWRT-WEB-netping-schema
+LUCI_DEPENDS:=
 
-all:
-	@echo "Nothing to do"
+include ../../luci.mk
 
-install:
-	@echo "Nothing to do"
+# call BuildPackage - OpenWrt buildroot signature
