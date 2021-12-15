@@ -22,12 +22,12 @@
 <html lang="<%=luci.i18n.context.lang%>">
 	<head>
 		<meta charset="utf-8">
-		<title><%=striptags( (boardinfo.hostname or "?") .. ( (node and node.title) and ' - ' .. translate(node.title) or '')) %> - LuCI</title>
+		<title><%=striptags( ("NetPing GSM Gateway 708G06") .. " - " .. (node and node.title) ) %></title>
 		<meta name="viewport" content="initial-scale=1.0">
 		<link rel="stylesheet" href="<%=media%>/cascade.css?v=git-21.044.30835-34e0d65">
 		<link rel="stylesheet" href="<%=media%>/netping.css">
 		<link rel="stylesheet" media="only screen and (max-device-width: 854px)" href="<%=media%>/mobile.css?v=git-21.044.30835-34e0d65" type="text/css" />
-		<link rel="shortcut icon" href="<%=media%>/favicon.png">
+		<link rel="shortcut icon" href="<%=media%>/favicon.ico">
 		<% if node and node.css then %>
 			<link rel="stylesheet" href="<%=resource%>/<%=node.css%>">
 		<% end -%>
@@ -42,7 +42,7 @@
 		<header>
 			<div class="fill">
 				<div class="container">
-					<a class="brand" href="#"><img class="brandimg" src="/luci-static/resources/icons/netping.png" alt="NetPing"> <%=boardinfo.hostname or "?"%></a>
+					<a class="brand" href="#"><img class="brandimg" src="/luci-static/resources/icons/netping.png" alt="NetPing">NetPing GSM Gateway 708G06&nbsp;&nbsp;ver. DKSO 708-1.X</a>
 					<ul class="nav" id="topmenu" style="display:none"></ul>
 					<div id="indicators" class="pull-right"></div>
 				</div>
