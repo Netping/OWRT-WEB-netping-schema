@@ -1,13 +1,11 @@
 #!/bin/sh
 
-if [ "$PKG_UPGRADE" != 1 ]; then
-    uci get luci.themes.netping >/dev/null 2>&1 || \
-    uci batch <<-EOF
+	uci get luci.themes.netping >/dev/null 
+	uci batch <<-EOF
 	set luci.themes.netping=/luci-static/netping
 	set luci.main.mediaurlbase=/luci-static/netping
 	commit luci
-    EOF
-fi
+	EOF
 
 rm -f /www/luci-static/resources/view/status/include/10_system.js
 rm -f /www/luci-static/resources/view/status/include/30_network.js
@@ -18,5 +16,5 @@ rm -f  /usr/lib/lua/luci/controller/opkg.lua
 rm -f  /usr/lib/lua/luci/controller/admin/network.lua
 rm -f  /usr/lib/lua/luci/controller/firewall.lua
 mv -f /www/luci-static/netping/*.json /usr/share/luci/menu.d/
-reboot
+
 exit 0
