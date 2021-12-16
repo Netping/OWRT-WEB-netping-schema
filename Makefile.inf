@@ -1,8 +1,8 @@
-include $(TOPDIR)/rules.mk
+.PHONY: install
 
-LUCI_TITLE:=OWRT WEB netping schema
-LUCI_DEPENDS:=
-
-include $(TOPDIR)/feeds/luci/luci.mk
-
-# call BuildPackage - OpenWrt buildroot signature
+install:
+	cp -r ./root/etc/uci-defaults /etc
+	cp -r ./htdocs/luci-static /www
+	cp -r ./luasrc/view /usr/lib/lua/luci
+	/etc/uci-defaults/30_luci-theme-netping
+	reboot
