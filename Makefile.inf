@@ -4,5 +4,6 @@ install:
 	cp -r ./root/etc/uci-defaults /etc
 	cp -r ./htdocs/luci-static /www
 	cp -r ./luasrc/view /usr/lib/lua/luci
+	chmod 744 /etc/uci-defaults/30_luci-theme-netping
 	/etc/uci-defaults/30_luci-theme-netping
 	reboot
