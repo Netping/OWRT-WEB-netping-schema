@@ -8,6 +8,27 @@
 
 <h2 name="content"><%:Status%></h2>
 
+<script type="text/javascript">
+  function getXmlHttp() {var xmlhttp; try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");  } catch (e) { try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } catch (E) { xmlhttp = false; }}
+    if (!xmlhttp && typeof XMLHttpRequest!='undefined') { xmlhttp = new XMLHttpRequest();  } return xmlhttp;   }
+    function send() {
+    //alert (number_of_door);
+    document.getElementById('door'+number_of_door).style.backgroundColor = "#409040";
+    //alert(document.getElementById('door'+number_of_door).style.backgroundColor);
+    var st_ref = getXmlHttp(); 
+    st_ref.open('POST', 'status_refresh.lua', true); xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    st_ref.send("number_of_door=" + number_of_door );
+
+    xmlhttp.onreadystatechange = function() { // Ждём ответа от сервера
+      if (xmlhttp.readyState == 4) { // Ответ пришёл
+        if(xmlhttp.status == 200) { // Сервер вернул код 200 (что хорошо)
+    document.getElementById('door'+number_of_door).style.backgroundColor = "#909090";
+        } } } }
+</script>
+
+<div id="view123">
+</div>
+
 <div id="view_netping">
 <div class="cbi-section fade-in" style="">
 <h3><%:System%></h3>
@@ -31,19 +52,19 @@
 </div>
 <div class="tr">
 <div class="td left" width="33%"><%:Local Time%></div>
-<div class="td left"><% print (os.date("%H:%M:%S %d.%m.%Y")) %></div>
+<div class="td left" id="local_time"><% print (os.date("%H:%M:%S %d.%m.%Y")) %></div>
 </div>
 <div class="tr"><div class="td left" width="33%"><%:Uptime%></div>
-<div class="td left"><% print (os.date("%Hh %Mm %Ss", luci.sys.uptime())) %></div>
+<div class="td left" id="up_time"><% print (os.date("%Hh %Mm %Ss", luci.sys.uptime())) %></div>
 </div>
 <div class="tr">
 <div class="td left" width="33%"><%:Load Average%></div>
-<div class="td left"><% print (string.format("%.2f", nixio.sysinfo().loads[1]) .. ", " .. string.format("%.2f", nixio.sysinfo().loads[2]) .. ", " .. string.format("%.2f", nixio.sysinfo().loads[3])) %></div>
+<div class="td left" id="load_average"><% print (string.format("%.2f", nixio.sysinfo().loads[1]) .. ", " .. string.format("%.2f", nixio.sysinfo().loads[2]) .. ", " .. string.format("%.2f", nixio.sysinfo().loads[3])) %></div>
 </div>
 </div></div></div></div>
 
-<div id="view">       
-	<div class="spinning"><%:Loading view:%></div>
+<div id="view">                                                                                                                                     
+	<div class="spinning"><%:Loading view:%></div>                                                                                      
 </div> 
 
 <script type="text/javascript">//<![CDATA[
@@ -107,6 +128,18 @@ function renderBadge(icon, title) {
 	L.require('ui').then(function(ui) {
 		ui.instantiateView('status/index');
 	});
+</script>
+
+<script type="text/javascript">
+function send_overview() {
+    var stat_ref = new XMLHttpRequest(); stat_ref.open("GET", "/cgi-bin/over_ref.cgi", true);
+    stat_ref.onreadystatechange = function () { if(stat_ref.readyState === XMLHttpRequest.DONE && stat_ref.status === 200) 
+    	    { var lines_ref = stat_ref.responseText.split("\n");
+		document.getElementById('local_time').innerHTML = lines_ref[0];
+		document.getElementById('up_time').innerHTML = lines_ref[1];
+		document.getElementById('load_average').innerHTML = lines_ref[2]; }; };
+        stat_ref.send();};
+	        window.setInterval(send_overview.bind(), 5000);
 </script>
 
 <%+footer%>
