@@ -22,9 +22,7 @@ install:
 	cp -r ./htdocs/luci-static /www
 	cp -r ./htdocs/cgi-bin /www
 	cp -r ./luasrc/view /usr/lib/lua/luci
-	chmod +x /etc/uci-defaults/30_luci-theme-netping
-	chmod 755 /www/cgi-bin/over_ref.cgi
-	/etc/uci-defaults/30_luci-theme-netping
+	chmod +x /www/cgi-bin/over_ref.cgi
 	reboot
 
 clean:
