@@ -9,7 +9,7 @@ PKG_DEPENDS=luci-base
 
 MODULE_NAME=owrt_web_netping_schema
 
-.PHONY: all install
+.PHONY: install
 
 build:
 	@echo "Nothing to do"
