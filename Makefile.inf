@@ -8,6 +8,13 @@ PKG_RELEASE=1
 PKG_DEPENDS=luci-base
 
 MODULE_NAME=owrt_web_netping_schema
+UCI_DEF_SOURCE_DIR=/root/etc/uci-defaults/
+LUCI_SOURCE_DIR=/luasrc/
+LUCI_DIR=/usr/lib/lua/luci/
+WWW_DIR=/www/
+ETC_DIR=/etc/
+HTDOCS_SOURCE_DIR=/htdocs/
+INSTALL_DIR=
 
 .PHONY: install
 
@@ -18,11 +25,14 @@ configure:
 	@echo "Nothing to do"
 
 install:
-	cp -r ./root/etc/uci-defaults /etc
-	cp -r ./htdocs/luci-static /www
-	cp -r ./htdocs/cgi-bin /www
-	cp -r ./luasrc/view /usr/lib/lua/luci
-	chmod +x /www/cgi-bin/over_ref.cgi
+	ifneq ($(INSTALL_DIR),)
+	mkdir -p $(INSTALL_DIR)$(CONF_DIR) 
+	endif
+	cp -r .$(UCI_DEF_SOURCE_DIR) $(INSTALL_DIR)$(ETC_DIR)
+	cp -r .$(HTDOCS_SOURCE_DIR)luci-static $(INSTALL_DIR)$(WWW_DIR)
+	cp -r .$(HTDOCS_SOURCE_DIR)cgi-bin $(INSTALL_DIR)$(WWW_DIR)
+	cp -r .$(LUCI_SOURCE_DIR)view $(INSTALL_DIR)$(LUCI_DIR)
+	chmod +x $(INSTALL_DIR)$(WWW_DIR)cgi-bin/over_ref.cgi
 	reboot
 
 clean:
