@@ -8,24 +8,6 @@
 
 <h2 name="content"><%:Status%></h2>
 
-<script type="text/javascript">
-  function getXmlHttp() {var xmlhttp; try { xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");  } catch (e) { try { xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); } catch (E) { xmlhttp = false; }}
-    if (!xmlhttp && typeof XMLHttpRequest!='undefined') { xmlhttp = new XMLHttpRequest();  } return xmlhttp;   }
-    function send() {
-    //alert (number_of_door);
-    document.getElementById('door'+number_of_door).style.backgroundColor = "#409040";
-    //alert(document.getElementById('door'+number_of_door).style.backgroundColor);
-    var st_ref = getXmlHttp(); 
-    st_ref.open('POST', 'status_refresh.lua', true); xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    st_ref.send("number_of_door=" + number_of_door );
-
-    xmlhttp.onreadystatechange = function() { // Ждём ответа от сервера
-      if (xmlhttp.readyState == 4) { // Ответ пришёл
-        if(xmlhttp.status == 200) { // Сервер вернул код 200 (что хорошо)
-    document.getElementById('door'+number_of_door).style.backgroundColor = "#909090";
-        } } } }
-</script>
-
 <div id="view123">
 </div>
 
