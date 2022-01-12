@@ -27,6 +27,9 @@ configure:
 	@echo "Nothing to do"
 
 install:
+	mkdir -p $(INSTALL_DIR)$(ETC_DIR)
+	mkdir -p $(INSTALL_DIR)$(WWW_DIR)
+	mkdir -p $(INSTALL_DIR)$(LUCI_DIR)
 	cp -r .$(UCI_DEF_SOURCE_DIR) $(INSTALL_DIR)$(ETC_DIR)
 	cp -r .$(HTDOCS_SOURCE_DIR)luci-static $(INSTALL_DIR)$(WWW_DIR)
 	cp -r .$(HTDOCS_SOURCE_DIR)cgi-bin $(INSTALL_DIR)$(WWW_DIR)
