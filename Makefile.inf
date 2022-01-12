@@ -35,7 +35,6 @@ install:
 	cp -r .$(HTDOCS_SOURCE_DIR)cgi-bin $(INSTALL_DIR)$(WWW_DIR)
 	cp -r .$(LUCI_SOURCE_DIR)view $(INSTALL_DIR)$(LUCI_DIR)
 	chmod +x $(INSTALL_DIR)$(WWW_DIR)cgi-bin/over_ref.cgi
-	reboot
 
 clean:
 	@echo "Nothing to do"
