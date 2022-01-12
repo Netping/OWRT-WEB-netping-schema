@@ -7,6 +7,8 @@ PKG_VERSION=0.1
 PKG_RELEASE=1
 PKG_DEPENDS=luci-base
 
+CONF_FILE=
+CONF_DIR=/etc/config/
 MODULE_NAME=owrt_web_netping_schema
 UCI_DEF_SOURCE_DIR=/root/etc/uci-defaults/
 LUCI_SOURCE_DIR=/luasrc/
