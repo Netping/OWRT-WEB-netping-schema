@@ -27,9 +27,6 @@ configure:
 	@echo "Nothing to do"
 
 install:
-	ifneq ($(INSTALL_DIR),)
-	mkdir -p $(INSTALL_DIR)$(CONF_DIR) 
-	endif
 	cp -r .$(UCI_DEF_SOURCE_DIR) $(INSTALL_DIR)$(ETC_DIR)
 	cp -r .$(HTDOCS_SOURCE_DIR)luci-static $(INSTALL_DIR)$(WWW_DIR)
 	cp -r .$(HTDOCS_SOURCE_DIR)cgi-bin $(INSTALL_DIR)$(WWW_DIR)
