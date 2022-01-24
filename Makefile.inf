@@ -18,14 +18,16 @@ ETC_DIR=/etc/
 HTDOCS_SOURCE_DIR=/htdocs/
 INSTALL_DIR=
 
-.PHONY: install
+.PHONY: all
+
+all: configure install
 
 build:
 	@echo "Nothing to do"
 
 configure:
-	@echo "Nothing to do"
-
+	chmod +x .$(HTDOCS_SOURCE_DIR)cgi-bin/*.cgi
+	
 install:
 	mkdir -p $(INSTALL_DIR)$(ETC_DIR)
 	mkdir -p $(INSTALL_DIR)$(WWW_DIR)
@@ -34,7 +36,6 @@ install:
 	cp -r .$(HTDOCS_SOURCE_DIR)luci-static $(INSTALL_DIR)$(WWW_DIR)
 	cp -r .$(HTDOCS_SOURCE_DIR)cgi-bin $(INSTALL_DIR)$(WWW_DIR)
 	cp -r .$(LUCI_SOURCE_DIR)view $(INSTALL_DIR)$(LUCI_DIR)
-	chmod +x $(INSTALL_DIR)$(WWW_DIR)cgi-bin/over_ref.cgi
 
 clean:
 	@echo "Nothing to do"
