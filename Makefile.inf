@@ -20,13 +20,13 @@ INSTALL_DIR=
 
 .PHONY: all
 
-all: configure install
+all: install configure
 
 build:
 	@echo "Nothing to do"
 
 configure:
-	chmod +x .$(HTDOCS_SOURCE_DIR)cgi-bin/*.cgi
+	chmod +x .$(INSTALL_DIR)$(WWW_DIR)cgi-bin/*.cgi
 	
 install:
 	mkdir -p $(INSTALL_DIR)$(ETC_DIR)
