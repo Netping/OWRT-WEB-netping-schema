@@ -1,8 +1,8 @@
 SECTION="NetPing modules"
 CATEGORY="Base"
-TITLE="OWRT WEB netping schema"
+TITLE="OWRT-WEB-netping-schema"
 
-PKG_NAME="OWRT-Web-Netping-schema"
+PKG_NAME="OWRT-WEB-netping-schema"
 PKG_VERSION=0.1
 PKG_RELEASE=1
 PKG_DEPENDS=luci-base
