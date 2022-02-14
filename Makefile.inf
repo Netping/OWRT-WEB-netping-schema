@@ -22,7 +22,12 @@ INSTALL_DIR=
 
 all: install configure
 
+ipk: build install
+
 build:
+	@echo "Nothing to do"
+
+clean:
 	@echo "Nothing to do"
 
 configure:
