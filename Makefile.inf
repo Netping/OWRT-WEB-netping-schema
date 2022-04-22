@@ -4,8 +4,8 @@ TITLE="OWRT-WEB-netping-schema"
 
 PKG_NAME="OWRT-WEB-netping-schema"
 PKG_VERSION=0.1
-PKG_RELEASE=1
-PKG_DEPENDS=luci-base
+PKG_RELEASE=8
+PKG_DEPENDS=luci-base luci-compat
 
 CONF_FILE=
 CONF_DIR=/etc/config/
@@ -20,11 +20,14 @@ INSTALL_DIR=
 
 .PHONY: all
 
-all: install configure
+all: build preinstall install configure
 
 ipk: build install
 
 build:
+	@echo "Nothing to do"
+
+preinstall:
 	@echo "Nothing to do"
 
 clean:
